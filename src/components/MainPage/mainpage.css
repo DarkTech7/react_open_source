@@ -1,0 +1,12 @@
+/* Add margin between cards on mobile view */
+.custom-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  
+  /* Define the margin for mobile view */
+  .custom-container > .Card {
+    margin: 10px; /* Adjust the margin value as needed */
+  }
+  
