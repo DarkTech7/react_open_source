@@ -9,12 +9,13 @@ function RandomImg() {
     const [Count, setCount] = useState(1);
 
     const countP=()=>{
-        setCount(Count+1);
+      let a=Count+1;
+        setCount(a);
     }
 
   const fetchImages = async () => {
     try {
-      const apiUrl = `https://picsum.photos/v2/list?page=${Count}&limit=24`;
+      const apiUrl = `https://picsum.photos/v2/list?page=${Count}&limit=9`;
       const response = await axios.get(apiUrl);
       setImages(response.data);
     } catch (error) {
@@ -27,18 +28,18 @@ function RandomImg() {
 
             <button type="button" className="btn btn-primary mx-2" onClick={()=>{
                 setImgType("")
-                fetchImages();
                 setCurrImg("Normal Images")
+                fetchImages();
             }}>Get Images</button>
             <button type="button" className="btn btn-primary mx-2" onClick={()=>{
                 setImgType("?grayscale")
-                fetchImages();
                 setCurrImg("Grayscale Images")
+                fetchImages();
             }}>Grayscale Images</button>
             <button type="button" className="btn btn-primary mx-2" onClick={()=>{
                 setImgType("?blur=10")
-                fetchImages();
                 setCurrImg("Blured Images")
+                fetchImages();
             }}>Blur Images</button>
             <div className="container flex d-flex gap-3 flex-wrap justify-content-evenly">
                 <h6>{CurrImg}</h6>
@@ -53,15 +54,16 @@ function RandomImg() {
     </div>
     <div className="container">
 
-            <button type="button" className="btn btn-primary mx-2" onClick={()=>{
+           {Count>1 && <button type="button" className="btn btn-primary mx-2" onClick={()=>{
                 countP();
                 setImgType("")
                 fetchImages();
-            }}>Previous Page {"<"} {Count}</button>
+                setCount(Count-1)
+            }}>Previous Page {"<"} {Count-1}</button>}
             <button type="button" className="btn btn-primary mx-2" onClick={()=>{
-                countP();
-                setImgType("")
-                fetchImages();
+
+              fetchImages();
+              countP();
             }}>Next Page {">"} {Count}</button>
             </div>
     </>
