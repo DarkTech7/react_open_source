@@ -57,6 +57,11 @@ function RandomImg() {
                 countP();
                 setImgType("")
                 fetchImages();
+            }}>Previous Page {"<"} {Count}</button>
+            <button type="button" className="btn btn-primary mx-2" onClick={()=>{
+                countP();
+                setImgType("")
+                fetchImages();
             }}>Next Page {">"} {Count}</button>
             </div>
     </>
