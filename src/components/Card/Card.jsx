@@ -5,11 +5,11 @@ function Card(props) {
   return (
     <>
     <div className="card" style={{width:'20rem'}}>
-  <img src="https://picsum.photos/200" className="card-img-top" alt="..."/>
+  <img src={props.cardimage} className="card-img-top"/>
   <div className="card-body">
     <h5 className="card-title">{props.title}</h5>
     <p className="card-text">{props.description}</p>
-    <a href="#" className="btn btn-primary">Go</a>
+    <a href={props.download_link} target="_blank" rel="noreferrer" className="btn btn-primary">{props.card_btn}</a>
   </div>
 </div>
     </>
@@ -19,12 +19,17 @@ function Card(props) {
 
 Card.propTypes={
     title:PropTypes.string,
-    description:PropTypes.string
+    description:PropTypes.string,
+    cardimage:PropTypes.string,
+    download_link:PropTypes.string,
+    card_btn:PropTypes.string
 }
 
 Card.defaultProps={
     title:"Card Title",
-    description:"Card Description"
+    description:"Card Description",
+    cardimage:"https://picsum.photos/200",
+    card_btn:"Card Button"
 }
 
 export default Card

@@ -1,12 +1,13 @@
-import MainPage from "./components/MainPage/MainPage"
-import Navbar from "./components/Navbar/Navbar"
+// import MainPage from "./components/MainPage/MainPage"
+
+import RandomImg from "./components/RandomImg/RandomImg"
 
 function App() {
 
   return (
     <>
-     <Navbar/>
-     <MainPage/>
+     {/* <MainPage/> */}
+     <RandomImg/>
     </>
   )
 }
